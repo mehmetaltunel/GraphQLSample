@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.5" />
+
+    <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraphQL.DataAcess\GraphQL.DataAcess.csproj" />
+  </ItemGroup>
+
+</Project>
