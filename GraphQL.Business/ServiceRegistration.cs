@@ -1,9 +1,6 @@
 ﻿using GraphQL.Business.GraphQL.Query;
-using GraphQL.Business.GraphQL.RepositoryQueries;
 using GraphQL.Business.GraphQL.RepositoryQueries.Abstract;
 using GraphQL.Business.GraphQL.RepositoryQueries.Concrete;
-using GraphQL.Business.Services.Abstract;
-using GraphQL.Business.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GraphQL.Business
@@ -18,7 +15,6 @@ namespace GraphQL.Business
             services.AddScoped<ICategoryRepositoryQuery, CategoryRepositoryQuery>();
             services.AddScoped<IProductRepositoryQuery, ProductRepositoryQuery>();
 
-            services.AddScoped<ICategoryService, CategoryService>();
         }
     }
 }
