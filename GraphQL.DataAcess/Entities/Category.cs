@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GraphQL.DataAcess.Entities
 {
-    public class Student : BaseEntity
+    public class Category : BaseEntity
     {
         public string Name { get; set; }
-        public string Roll { get; set; }
+        public string? Description { get; set; }
     }
 }

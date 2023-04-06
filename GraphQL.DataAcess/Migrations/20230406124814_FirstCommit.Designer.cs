@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GraphQL.DataAcess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230405131217_firstMig")]
-    partial class firstMig
+    [Migration("20230406124814_FirstCommit")]
+    partial class FirstCommit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace GraphQL.DataAcess.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("GraphQL.DataAcess.Entities.Student", b =>
+            modelBuilder.Entity("GraphQL.DataAcess.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,6 +35,9 @@ namespace GraphQL.DataAcess.Migrations
 
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
                     b.Property<bool?>("IsActive")
                         .HasColumnType("boolean");
@@ -46,53 +49,47 @@ namespace GraphQL.DataAcess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Roll")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8256),
+                            CreatedDate = new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4679),
+                            Description = "alkol var",
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Mehmet",
-                            Roll = "1001"
+                            Name = "Alkollü İçecek"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8268),
+                            CreatedDate = new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4690),
+                            Description = "alkol yok",
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Ahmet",
-                            Roll = "1002"
+                            Name = "Alkolsüz İçecek"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8270),
+                            CreatedDate = new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4691),
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Maho",
-                            Roll = "1003"
+                            Name = "Gazlı İçecek"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8272),
+                            CreatedDate = new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4693),
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Ümido",
-                            Roll = "1004"
+                            Name = "Meyve Suları"
                         });
                 });
 #pragma warning restore 612, 618

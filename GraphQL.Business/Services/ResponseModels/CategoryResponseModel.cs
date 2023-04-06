@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphQL.Business.Student
+namespace GraphQL.Business.Services.ResponseModels
 {
-    public class StudentResponseModel
+    public class CategoryResponseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Roll { get; set; }
+        public string? Description { get; set; }
     }
 }

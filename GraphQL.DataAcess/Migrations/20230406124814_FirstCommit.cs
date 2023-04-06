@@ -9,19 +9,19 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GraphQL.DataAcess.Migrations
 {
     /// <inheritdoc />
-    public partial class firstMig : Migration
+    public partial class FirstCommit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Roll = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     IsActive = table.Column<bool>(type: "boolean", nullable: true),
@@ -29,18 +29,18 @@ namespace GraphQL.DataAcess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Students", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Students",
-                columns: new[] { "Id", "CreatedDate", "IsActive", "IsDeleted", "Name", "Roll", "UpdatedDate" },
+                table: "Categories",
+                columns: new[] { "Id", "CreatedDate", "Description", "IsActive", "IsDeleted", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8256), true, false, "Mehmet", "1001", null },
-                    { 2, new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8268), true, false, "Ahmet", "1002", null },
-                    { 3, new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8270), true, false, "Maho", "1003", null },
-                    { 4, new DateTime(2023, 4, 5, 16, 12, 17, 823, DateTimeKind.Local).AddTicks(8272), true, false, "Ümido", "1004", null }
+                    { 1, new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4679), "alkol var", true, false, "Alkollü İçecek", null },
+                    { 2, new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4690), "alkol yok", true, false, "Alkolsüz İçecek", null },
+                    { 3, new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4691), null, true, false, "Gazlı İçecek", null },
+                    { 4, new DateTime(2023, 4, 6, 15, 48, 14, 158, DateTimeKind.Local).AddTicks(4693), null, true, false, "Meyve Suları", null }
                 });
         }
 
@@ -48,7 +48,7 @@ namespace GraphQL.DataAcess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "Categories");
         }
     }
 }

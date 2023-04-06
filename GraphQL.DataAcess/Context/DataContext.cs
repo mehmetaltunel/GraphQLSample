@@ -10,7 +10,7 @@ namespace GraphQL.DataAcess.Context
 {
     public class DataContext : DbContext
     {
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -18,41 +18,39 @@ namespace GraphQL.DataAcess.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>().HasData(new Student
+            modelBuilder.Entity<Category>().HasData(new Category
             {
                 Id = 1,
-                Name = "Mehmet",
-                Roll = "1001",
+                Name = "Alkollü İçecek",
+                Description = "alkol var",
                 CreatedDate = DateTime.Now,
                 IsActive = true,
                 IsDeleted = false,
                 UpdatedDate = null
             },
-            new Student
+            new Category
             {
                 Id = 2,
-                Name = "Ahmet",
-                Roll = "1002",
+                Name = "Alkolsüz İçecek",
+                Description = "alkol yok",
                 CreatedDate = DateTime.Now,
                 IsActive = true,
                 IsDeleted = false,
                 UpdatedDate = null
             },
-            new Student
+            new Category
             {
                 Id = 3,
-                Name = "Maho",
-                Roll = "1003",
+                Name = "Gazlı İçecek",
                 CreatedDate = DateTime.Now,
                 IsActive = true,
                 IsDeleted = false,
                 UpdatedDate = null
             },
-            new Student
+            new Category
             {
                 Id = 4,
-                Name = "Ümido",
-                Roll = "1004",
+                Name = "Meyve Suları",
                 CreatedDate = DateTime.Now,
                 IsActive = true,
                 IsDeleted = false,

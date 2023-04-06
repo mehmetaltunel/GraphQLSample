@@ -1,4 +1,7 @@
-﻿using GraphQL.Business.Student;
+﻿using GraphQL.Business.GraphQL.Queries;
+using GraphQL.Business.GraphQL.RepositoryQueries;
+using GraphQL.Business.Services.Abstract;
+using GraphQL.Business.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GraphQL.Business
@@ -7,9 +10,10 @@ namespace GraphQL.Business
     {
         public static void BusinessRegister(this IServiceCollection services)
         {
-            services.AddScoped<StudentQuery>();
-            services.AddGraphQLServer().AddQueryType<StudentQuery>();
-            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<CategoryQuery>();
+            services.AddScoped<IRepositoryQueries, RepositoryQueries>();
+            services.AddGraphQLServer().AddQueryType<CategoryQuery>();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
     }
 }

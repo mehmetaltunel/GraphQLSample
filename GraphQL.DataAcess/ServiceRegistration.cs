@@ -1,4 +1,7 @@
-﻿using GraphQL.DataAcess.Context;
+﻿using GraphQL.Core.UoW;
+using GraphQL.DataAcess.Context;
+using GraphQL.DataAcess.Repositories.Abstract;
+using GraphQL.DataAcess.Repositories.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +26,9 @@ namespace GraphQL.DataAcess
                 x.UseLazyLoadingProxies(false);
                 x.EnableSensitiveDataLogging();
             });
-            services.TryAddScoped<DbContext, DataContext>();
+            services.TryAddScoped(typeof(IUnitOfWork), typeof(UnitOfWork<DataContext>));
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
     }
 }
