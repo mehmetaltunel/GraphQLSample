@@ -1,8 +1,8 @@
 ﻿using GraphQL.Business.GraphQL.ResponseModels;
 
-namespace GraphQL.Business.GraphQL.RepositoryQueries
+namespace GraphQL.Business.GraphQL.RepositoryQueries.Abstract
 {
-    public interface IRepositoryQueries
+    public interface ICategoryRepositoryQuery
     {
         IQueryable<CategoryQueryResponseModel> GetCategories();
     }

@@ -29,6 +29,7 @@ namespace GraphQL.DataAcess
             services.TryAddScoped(typeof(IUnitOfWork), typeof(UnitOfWork<DataContext>));
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
     }
 }
