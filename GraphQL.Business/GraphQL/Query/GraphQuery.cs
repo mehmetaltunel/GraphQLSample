@@ -15,7 +15,13 @@ namespace GraphQL.Business.GraphQL.Query
         }
 
         [UseFiltering]
+        [UseSorting]
+        //[UsePaging]
         public IQueryable<CategoryQueryResponseModel> Categories => _categoryQueries.GetCategories();
+
+        [UseFiltering]
+        [UseSorting]
+        //[UsePaging]
         public IQueryable<ProductQueryResponseModel> Products => _productQueries.GetProducts();
 
     }

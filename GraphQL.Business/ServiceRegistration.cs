@@ -10,7 +10,11 @@ namespace GraphQL.Business
         public static void BusinessRegister(this IServiceCollection services)
         {
             services.AddScoped<GraphQuery>();
-            services.AddGraphQLServer().AddFiltering().AddQueryType<GraphQuery>();
+            services.AddGraphQLServer()
+                    .AddQueryType<GraphQuery>()
+                    .AddSorting()
+                    .AddFiltering()
+                    ;
 
             services.AddScoped<ICategoryRepositoryQuery, CategoryRepositoryQuery>();
             services.AddScoped<IProductRepositoryQuery, ProductRepositoryQuery>();

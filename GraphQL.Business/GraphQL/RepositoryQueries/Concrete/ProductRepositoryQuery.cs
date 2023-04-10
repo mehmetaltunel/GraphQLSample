@@ -18,6 +18,7 @@ namespace GraphQL.Business.GraphQL.RepositoryQueries.Concrete
         {
             _unitOfWork = unitOfWork;
         }
+
         public IQueryable<ProductQueryResponseModel> GetProducts()
            => (from product in _unitOfWork.Repository<IProductRepository>().Query()
                join category in _unitOfWork.Repository<ICategoryRepository>().Query() on product.CategoryId equals category.Id
